@@ -1,5 +1,18 @@
 import streamlit as st
+from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
+
+def get_active_session():
+connection_parameters = {
+    "account": st.secrets["connections.snowflake"]["account"],
+    "user": st.secrets["connections.snowflake"]["user"],
+    "password": st.secrets["connections.snowflake"]["password"],
+    "role": st.secrets["connections.snowflake"].get("role"),
+    "warehouse": st.secrets["connections.snowflake"].get("warehouse"),
+    "database": st.secrets["connections.snowflake"].get("database"),
+    "schema": st.secrets["connections.snowflake"].get("schema")
+    }
+    return Session.builder.configs(connection_parameters).create()
 
 st.title(':cup_with_straw: Customize Your Smoothie! :cup_with_straw:')
 st.write('Choose the fruits you want in your custom Smoothie!')
