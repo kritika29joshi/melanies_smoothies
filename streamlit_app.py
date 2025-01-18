@@ -6,13 +6,13 @@ from snowflake.snowpark.functions import col
 def get_active_session():
     # Replace the following with your Snowflake connection parameters
     connection_parameters = {
-        "account": "your_account",
-        "user": "your_username",
-        "password": "your_password",
-        "role": "your_role",
-        "warehouse": "your_warehouse",
-        "database": "your_database",
-        "schema": "your_schema"
+        "account": "KRITIKA_B3",
+        "user": "Kritika02",
+        "password": "Trial@2004",
+        "role": "SYSADMIN",
+        "warehouse": "COMPUTE_WH",
+        "database": "SMOOTHIES",
+        "schema": "PUBLIC"
     }
     return Session.builder.configs(connection_parameters).create()
 
